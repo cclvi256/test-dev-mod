@@ -14,20 +14,17 @@ public class VomitEffect extends StatusEffect {
 
 	@Override
 	public boolean canApplyUpdateEffect(int duration, int amplifier) {
-		if (duration > 0) {
-			return duration % 20 == 0;
-		} else {
-			return false;
-		}
+		return duration == 1;
 	}
 
 	@Override
 	public boolean applyUpdateEffect(ServerWorld world, LivingEntity entity, int amplifier) {
-		if (entity instanceof PlayerEntity) {
-			PlayerEntity vomitingPlayer = (PlayerEntity) entity;
+		if (entity instanceof PlayerEntity vomitingPlayer) {
+			amplifier = Math.min(8, amplifier);
 			HungerManager hm = vomitingPlayer.getHungerManager();
-			float level = hm.getFoodLevel() + hm.getSaturationLevel();
-			vomitingPlayer.addExhaustion(4 * 1.4f * 0.113431849435f * (amplifier + 1) * level / 33f * 28f);
+			float level = hm.getFoodLevel();
+			float new_level = level * (1 - 0.1f * (amplifier + 1));
+			hm.setFoodLevel((int)Math.ceil(new_level));
 		}
 
 		return super.applyUpdateEffect(world, entity, amplifier);
