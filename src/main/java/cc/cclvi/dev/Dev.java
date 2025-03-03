@@ -1,10 +1,17 @@
 package cc.cclvi.dev;
 
+import cc.cclvi.dev.effects.VomitEffect;
 import cc.cclvi.dev.items.DevItems;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
+
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +34,7 @@ public class Dev implements ModInitializer {
 		FuelRegistryEvents.BUILD.register(((builder, context) -> {
 			builder.add(DevItems.SAND_POWDER, 18 * 10 * 20);
 		}));
+
 
 		LOGGER.info("Hello Fabric world!");
 	}

@@ -1,6 +1,7 @@
 package cc.cclvi.dev.items;
 
 import cc.cclvi.dev.Dev;
+import cc.cclvi.dev.effects.DevEffects;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.type.ConsumableComponent;
 import net.minecraft.component.type.ConsumableComponents;
@@ -31,7 +32,9 @@ public class DevItems {
 
 	// Shit
 	public static final ConsumableComponent SHIT_NAUSEA_COMPONENT = ConsumableComponents.food()
-			.consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 10 * 20, 0), 1f)).build();
+			.consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 10 * 20, 3), 1f))
+			.consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(DevEffects.VOMIT, 10 * 20, 0), 1f))
+					.build();
 	public static final FoodComponent SHIT_COMPONENT = new FoodComponent.Builder().alwaysEdible().build();
 	public static final Item SHIT = register("shit", Item::new, new Item.Settings().food(SHIT_COMPONENT, SHIT_NAUSEA_COMPONENT));
 
