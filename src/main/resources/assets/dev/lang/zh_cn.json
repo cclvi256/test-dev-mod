@@ -1,5 +1,10 @@
 {
   "item.dev.sand_powder": "粉状沙子",
   "item.dev.shit": "依托答辩",
-  "effect.dev.vomit": "令人作呕"
+  "effect.dev.vomit": "令人作呕",
+  "item.dev.quartz_axe": "石英斧",
+  "item.dev.quartz_hoe": "石英锄",
+  "item.dev.quartz_pickaxe": "石英镐",
+  "item.dev.quartz_shovel": "石英锹",
+  "item.dev.quartz_sword": "石英剑"
 }
